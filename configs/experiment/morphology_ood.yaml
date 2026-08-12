@@ -1,0 +1,8 @@
+name: morphology_ood
+target_region: PeMSD8
+source_regions: [PeMSD8]
+strict_zero_shot: true
+seeds: [42, 52, 62, 72, 82]
+subgraph:
+  num_parts: 4
+  strategy: bfs_balanced

@@ -1,0 +1,12 @@
+name: pdr
+in_channels: 1
+hidden_dim: 64
+response_dim: 32
+value_dim: 32
+num_lags: 6
+num_slots: 6
+basis_sigma: 0.18
+dropout: 0.1
+temperature: 1.0
+lambda_prop: 0.2
+lambda_self: 0.1

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from typing import cast
 
 import torch
 from torch import nn
@@ -41,7 +42,7 @@ class SharedForecastHead(nn.Module):
         b, h, n, c = x.shape
         hist = x.permute(0, 2, 1, 3).reshape(b, n, h * c)
         prop = z.reshape(b, n, -1)
-        return self.net(torch.cat([hist, prop], dim=-1))
+        return cast(torch.Tensor, self.net(torch.cat([hist, prop], dim=-1)))
 
 
 class PDRForecaster(nn.Module):

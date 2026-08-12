@@ -9,6 +9,8 @@ from trafficdynshift.config_schema import ModelConfig
 class PropagationDynamicsRepresentation(nn.Module):
     """Reorganize irregular graph neighborhoods into shared lag-response slots."""
 
+    basis: torch.Tensor
+
     def __init__(self, cfg: ModelConfig) -> None:
         super().__init__()
         cfg.validate()

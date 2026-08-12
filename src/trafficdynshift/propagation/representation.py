@@ -29,7 +29,10 @@ class PropagationDynamicsRepresentation(nn.Module):
         self.register_buffer("basis", basis)
 
     def forward(
-        self, x: torch.Tensor, response_probs: torch.Tensor, edge_index: torch.Tensor
+        self,
+        x: torch.Tensor,
+        response_probs: torch.Tensor,
+        edge_index: torch.Tensor,
     ) -> torch.Tensor:
         """Return ``(B,N,K,D)`` while preserving the original node count ``N``."""
         b, _, n, _ = x.shape

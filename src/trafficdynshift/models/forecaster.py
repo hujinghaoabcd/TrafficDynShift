@@ -67,9 +67,7 @@ class PDRForecaster(nn.Module):
             nn.Linear(cfg.hidden_dim, cfg.out_len),
         )
 
-    def forward(
-        self, x: torch.Tensor, edge_index: torch.Tensor
-    ) -> dict[str, torch.Tensor]:
+    def forward(self, x: torch.Tensor, edge_index: torch.Tensor) -> dict[str, torch.Tensor]:
         probs = self.response(x, edge_index)
         z = self.representation(x, probs, edge_index)
         pred_bnp = self.forecast_head(x, z)
@@ -95,9 +93,5 @@ class PDRForecaster(nn.Module):
         self_loss = torch.mean(torch.abs(self_pred - y))
         residual_target = (y - self_pred).detach()
         propagation = torch.mean(torch.abs(residual_pred - residual_target))
-        total = (
-            forecast
-            + self.cfg.lambda_prop * propagation
-            + self.cfg.lambda_self * self_loss
-        )
+        total = forecast + self.cfg.lambda_prop * propagation + self.cfg.lambda_self * self_loss
         return PDRLosses(total, forecast, propagation, self_loss)

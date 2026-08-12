@@ -1,0 +1,5 @@
+name: zero_shot
+target_region: PeMSD8
+source_regions: [PeMSD3, PeMSD4, PeMSD7]
+strict_zero_shot: true
+seeds: [42, 52, 62, 72, 82]

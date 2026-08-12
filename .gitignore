@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Data and experiment outputs
+data/*
+!data/.gitkeep
+!data/README.md
+outputs/*
+!outputs/.gitkeep
+checkpoints/
+wandb/
+mlruns/
+
+# Hydra
+multirun/
+
+# Local env
+.env

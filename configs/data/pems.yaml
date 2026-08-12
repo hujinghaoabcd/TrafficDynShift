@@ -1,0 +1,26 @@
+name: pems
+root: data
+in_len: 12
+out_len: 12
+feature_index: 0
+train_ratio: 0.6
+val_ratio: 0.2
+num_workers: 0
+pin_memory: false
+adjacency_threshold: 0.0
+support_hops: 2
+include_self: false
+
+regions:
+  PeMSD3:
+    data_path: ${data.root}/PeMSD3/PeMSD3.npz
+    adjacency_path: ${data.root}/PeMSD3/adjacency.npy
+  PeMSD4:
+    data_path: ${data.root}/PeMSD4/PeMSD4.npz
+    adjacency_path: ${data.root}/PeMSD4/adjacency.npy
+  PeMSD7:
+    data_path: ${data.root}/PeMSD7/PeMSD7.npz
+    adjacency_path: ${data.root}/PeMSD7/adjacency.npy
+  PeMSD8:
+    data_path: ${data.root}/PeMSD8/PeMSD8.npz
+    adjacency_path: ${data.root}/PeMSD8/adjacency.npy

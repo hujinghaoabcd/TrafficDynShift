@@ -22,8 +22,7 @@ class PropagationDynamicsRepresentation(nn.Module):
         lag_positions = torch.linspace(1.0 / cfg.num_lags, 1.0, cfg.num_lags)
         slot_centers = torch.linspace(0.0, 1.0, cfg.num_slots)
         basis = torch.exp(
-            -0.5
-            * ((lag_positions[:, None] - slot_centers[None, :]) / cfg.basis_sigma) ** 2
+            -0.5 * ((lag_positions[:, None] - slot_centers[None, :]) / cfg.basis_sigma) ** 2
         )
         basis = basis / basis.sum(dim=1, keepdim=True).clamp_min(1e-8)
         self.register_buffer("basis", basis)
